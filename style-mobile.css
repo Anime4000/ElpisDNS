@@ -1,0 +1,117 @@
+@media (max-width: 768px){
+
+	/* HERO */
+
+	.hero-banner{
+		height:160px;
+		background-position:center;
+	}
+
+	.hero-content{
+		padding:18px;
+	}
+
+	.brand{
+		font-size:34px;
+	}
+
+	.hero-subtitle{
+		font-size:14px;
+		line-height:1.5;
+	}
+
+	/* CONTENT */
+
+	.container{
+		padding-left:18px;
+		padding-right:18px;
+	}
+
+	/* TITLE */
+
+	.subtitle{
+		font-size:15px;
+		line-height:1.7;
+	}
+
+	/* SELECTOR LAYOUT */
+
+	.selector-group{
+		flex-direction:column;
+		border-left:none;
+		margin-bottom:22px;
+	}
+
+	.selector-label{
+		min-width:100%;
+		margin-bottom:10px;
+		padding-top:0;
+		font-weight:600;
+		border-left:4px solid #999;
+		padding-left:10px;
+	}
+
+	/* BUTTON GRID */
+
+	.selector-options{
+		display:grid !important;
+		grid-template-columns:1fr 1fr;
+		gap:6px;
+	}
+
+	/* FULL WIDTH */
+
+	.command-box{
+		width:100%;
+		overflow:hidden;
+	}
+
+	.selector-options{
+		display:grid;
+		grid-template-columns:1fr 1fr;
+		gap:6px;
+	}
+
+	.selector-options.full-width{
+		display:block !important;
+	}
+
+	/* BUTTONS */
+
+	.option-btn{
+		width:100%;
+		min-width:0;
+		padding:14px 10px;
+		font-size:14px;
+	}
+
+	/* ENDPOINT */
+
+	#endpoint{
+		font-size:13px;
+		overflow-x:auto;
+		white-space:nowrap;
+	}
+
+	#copy-btn{
+		min-width:72px;
+		font-size:13px;
+	}
+
+	/* SUMMARY */
+
+	.selection-summary{
+		font-size:13px;
+		line-height:1.8;
+	}
+
+	/* FOOTER */
+
+	footer{
+		text-align:center;
+	}
+
+	.footer-title{
+		margin-top:12px;
+	}
+}
