@@ -1,0 +1,18 @@
+!
+! Title: Riri DNS filter
+! Description: List composed of several filters (Unwanted, Bogus, Dead, Expired, Stupid) and simplified specifically to be better compatible with DNS-level ad blocking
+! Version: 
+! Homepage: https://riri.pururin.moe/
+!
+! Compiled by @Riri1x86 (riri1x86@live.jp)
+!
+||darkorb.net^
+||fusu.cc^
+||hmdns.top^
+||cfpro.ru^
+||z6r8.com^
+||vtb.com^
+||heimaoip.com^
+||sikelocci.com^
+||v2z.ru^
+||vpnv.shop^
