@@ -1,11 +1,12 @@
 !
-! Title: Riri DNS filter
-! Description: List composed of several filters (Unwanted, Bogus, Dead, Expired, Stupid) and simplified specifically to be better compatible with DNS-level ad blocking
-! Version: 
+! Title: Riri DNS Filter
+! Description: A curated DNS filtering list that combines unwanted, bogus, dead, expired, parked, malicious, deceptive, and legally abusive domains. Multiple public blocklists are reviewed, simplified, and optimized specifically for DNS-level filtering to improve compatibility, reduce false positives, and maximize performance.
+! Version: -
 ! Homepage: https://riri.pururin.moe/
 !
-! Compiled by @Riri1x86 (riri1x86@live.jp)
+! Compiled and maintained by @Riri1x86 (riri1x86@live.jp)
 !
+||ruck-fi.com^
 ||darkorb.net^
 ||fusu.cc^
 ||hmdns.top^
