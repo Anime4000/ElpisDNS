@@ -4,6 +4,8 @@
 
 Community-driven DNS infrastructure focused on privacy, low latency routing, CDN acceleration, and resilient accessibility across regional and international networks. Built upon the principles of an open internet and aligned with the vision of [EFF Internet Freedom and Privacy](https://www.eff.org/). 
 
+🏠 https://elpis.violetnetworks.xyz/
+
 ## DNS infrastructure focused on
 
 - Privacy
@@ -20,6 +22,6 @@ python -m http.server 8000
 ```
 
 # Sponspor
-Proudly Sponsored by [Perfect Network](https://perfect.my/) (AS 154516)
+Proudly Sponsored by [Perfect Network](https://perfect.my/) ([AS154516](https://bgp.tools/as/154516))
 
 ![PERFECT](img/perfect.png)
