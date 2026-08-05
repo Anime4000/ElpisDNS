@@ -1,3 +1,5 @@
+![SakurakoWaifu](img/banner0.jpg)
+
 # ΕΛΠΙΣ DNS
 
 Community-driven DNS infrastructure focused on privacy, low latency routing, CDN acceleration, and resilient accessibility across regional and international networks. Built upon the principles of an open internet and aligned with the vision of [EFF Internet Freedom and Privacy](https://www.eff.org/). 
