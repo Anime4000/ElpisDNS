@@ -1,0 +1,2 @@
+||ads.google.com^
+||adservice.google.com^
