@@ -1,2 +1,10 @@
+!
+! Title: Riri DNS Exceptions List
+! Description: A curated collection of trusted domains that should bypass DNS filtering. Designed to complement DNS blocklists by reducing false positives, preserving essential service functionality, and ensuring compatibility with modern web applications, content delivery networks, authentication services, and platform-specific features.
+! Version: -
+! Homepage: https://riri.pururin.moe/
+!
+! Compiled and maintained by @Riri1x86 ([riri1x86@live.jp](mailto:riri1x86@live.jp))
+!
 ||ads.google.com^
 ||adservice.google.com^
