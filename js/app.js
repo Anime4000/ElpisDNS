@@ -544,6 +544,14 @@ wire("shuffle-btn", () => {
 	remember(endpoint);
 });
 
+// Anything carrying data-copy hands its value to the clipboard.
+// Used by the blocklist subscription URLs.
+document.querySelectorAll("[data-copy]").forEach(button => {
+
+	button.onclick = event =>
+		copy(button.dataset.copy, event.currentTarget, "Copied");
+});
+
 window.addEventListener("hashchange", () => {
 
 	readHash();
