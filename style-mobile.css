@@ -33,16 +33,26 @@
 	/* HERO */
 
 	.hero-banner{
-		height:220px;
+		height:240px;
 	}
 
-	/* Narrow screens put the text straight over the bright half of
-	   the artwork, so the veil stays even the whole way across. */
+	/* The map cannot be beside the text on a phone, so it goes behind it:
+	   whole map visible, pinned to the top, words over the bottom half. */
+	.hero-banner::after{
+		padding:0;
+		background-position:right top;
+		background-size:contain;
+		opacity:.85;
+	}
+
 	.hero-overlay{
+		align-items:flex-end;
 		background:linear-gradient(
 			180deg,
-			rgba(8,9,11,.55) 0%,
-			rgba(8,9,11,.72) 100%
+			rgba(11,14,19,.15) 0%,
+			rgba(11,14,19,.55) 38%,
+			rgba(11,14,19,.90) 68%,
+			rgba(11,14,19,.96) 100%
 		);
 	}
 

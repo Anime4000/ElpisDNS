@@ -108,6 +108,14 @@ plan to run it. That is the whole ritual.
 | `js/app-quote.js` | Footer quotes |
 | `js/app-mikrotik.js` | The `.rsc` generator |
 | `js/app-setup.js` | Setup page helpers |
+| `img/hero-map.svg` | The animated banner. Generated, do not hand edit |
+| `tools/make-hero-map.py` | Regenerates the banner and its reduced-motion still |
+
+The banner is the one file in the project that is not written by hand. The
+ASN list the HUD walks through, the traffic arcs and the blocked queries all
+live near the top of `tools/make-hero-map.py`; change them there and run
+`python tools/make-hero-map.py`. Editing the SVG directly works right up
+until somebody regenerates it.
 
 House style: tabs for indentation, blank line between logical steps, no
 build tooling. Colours go in the token block at the top of `style-main.css`

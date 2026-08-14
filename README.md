@@ -79,6 +79,20 @@ fetched over HTTP.
 | `js/app-quote.js` | Footer quotes |
 | `js/app-mikrotik.js` | RouterOS `.rsc` generator |
 | `js/app-setup.js` | Setup page helpers |
+| `img/hero-map.svg` | Animated night map behind the hero, generated |
+| `tools/make-hero-map.py` | Regenerates that map. Only needed if you change it |
+
+The banner is a self-contained animated SVG: encrypted traffic leaving the
+resolver in orange, a HUD walking the autonomous systems on the path, and
+blocked queries dying in red on the shield ring. It is generated because the
+landmass is fourteen hundred dots sampled from coastline polygons:
+
+```
+python tools/make-hero-map.py
+```
+
+That writes both `img/hero-map.svg` and a still `img/hero-map-static.svg`,
+which is what visitors who ask for reduced motion get served.
 
 The site follows your operating system's light or dark preference out of the box;
 the icon in the top bar cycles system, light and dark, and the choice is remembered.

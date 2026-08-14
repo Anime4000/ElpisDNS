@@ -44,7 +44,7 @@
 	--btn-dead-text:#a6a8ac;
 
 	--shadow:0 1px 2px rgba(15,15,20,.06),0 8px 24px rgba(15,15,20,.05);
-	--hero-veil:rgba(10,10,12,.5);
+	--night:#0b0e13;
 }
 
 /* ---------- dark: orange on grey ---------- */
@@ -73,7 +73,7 @@
 	--btn-dead-text:#5c6065;
 
 	--shadow:0 1px 2px rgba(0,0,0,.5),0 10px 30px rgba(0,0,0,.35);
-	--hero-veil:rgba(8,9,11,.66);
+	--night:#0b0e13;
 }
 
 /* ---------- base ---------- */
@@ -217,17 +217,58 @@ code,
 
 /* ---------- hero ---------- */
 
+/*
+	The banner is an animated SVG night map: orange traffic leaving the
+	resolver, a HUD walking the autonomous systems it talks to, and red
+	queries dying on the shield ring.
+
+	It lives on ::after rather than on .hero-banner itself because the map
+	has to line up with the container that holds everything else on the
+	page. The pseudo element repeats Bootstrap's container widths, centres
+	itself, and anchors the map to its right content edge - so the map ends
+	exactly where the text below it ends, at every breakpoint.
+*/
+
 .hero-banner{
 	position:relative;
 
 	width:100%;
 	height:340px;
 
-	background-image:url("img/banner0.jpg");
-	background-size:cover;
-	background-position:center;
+	background-color:var(--night);
 
 	overflow:hidden;
+}
+
+.hero-banner::after{
+	content:"";
+
+	position:absolute;
+	inset:0;
+	margin:0 auto;
+
+	max-width:1320px;
+	padding:0 12px;
+
+	background:url("img/hero-map.svg") no-repeat right center;
+	background-origin:content-box;
+	background-size:auto 100%;
+
+	pointer-events:none;
+	z-index:1;
+}
+
+@media (max-width:1399.98px){ .hero-banner::after{ max-width:1140px } }
+@media (max-width:1199.98px){ .hero-banner::after{ max-width:960px } }
+@media (max-width:991.98px){ .hero-banner::after{ max-width:720px } }
+@media (max-width:767.98px){ .hero-banner::after{ max-width:540px } }
+@media (max-width:575.98px){ .hero-banner::after{ max-width:none } }
+
+/* SMIL cannot be switched off from CSS, so serve the still frame instead. */
+@media (prefers-reduced-motion: reduce){
+	.hero-banner::after{
+		background-image:url("img/hero-map-static.svg");
+	}
 }
 
 .hero-video{
@@ -244,6 +285,7 @@ code,
 	object-fit:cover;
 }
 
+/* Dense on the left where the words are, clear on the right where the map is. */
 .hero-overlay{
 	position:relative;
 	z-index:2;
@@ -253,9 +295,11 @@ code,
 
 	background:linear-gradient(
 		90deg,
-		var(--hero-veil) 0%,
-		var(--hero-veil) 55%,
-		rgba(10,10,12,.25) 100%
+		var(--night) 0%,
+		rgba(11,14,19,.92) 28%,
+		rgba(11,14,19,.72) 46%,
+		rgba(11,14,19,.28) 68%,
+		rgba(11,14,19,0) 88%
 	);
 
 	display:flex;
@@ -269,8 +313,8 @@ code,
 }
 
 .hero-kicker{
-	/* Fixed, not tokenised: this always sits on the photo, never on
-	   the page background, so it must clear the bright half of it. */
+	/* Fixed, not tokenised: this always sits on the night map, never on
+	   the page background, in either theme. */
 	color:#ffc79f;
 	font-family:var(--font-display);
 	font-size:13px;
