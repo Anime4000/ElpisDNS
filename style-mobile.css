@@ -166,6 +166,10 @@
 		font-size:13.5px;
 	}
 
+	.address-grid{
+		grid-template-columns:1fr;
+	}
+
 	/* BLACKLIST */
 
 	.bl-index{
@@ -179,13 +183,18 @@
 
 	/* A subscription URL and a button side by side leaves the URL a
 	   sliver wide, so they stack and each takes the full row. */
-	.bl-url{
+	.bl-url,
+	.copy-row{
 		flex-direction:column;
 		align-items:stretch;
 		gap:8px;
 	}
 
-	.bl-url code{
+	.bl-url code,
+	.copy-row code{
+		/* The row is a column here, so the inherited flex:1 would stretch the
+		   height rather than the width and crop the text to half a line. */
+		flex:none;
 		width:100%;
 		font-size:11.5px;
 	}

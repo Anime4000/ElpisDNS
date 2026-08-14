@@ -29,8 +29,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-<link href="style-main.css?version=2.7" rel="stylesheet">
-<link href="style-mobile.css?version=2.7" rel="stylesheet">
+<link href="style-main.css?version=3.3" rel="stylesheet">
+<link href="style-mobile.css?version=3.3" rel="stylesheet">
 
 <meta name="description" content="How to point Android, Windows, iOS, Firefox, Chrome, MikroTik, OpenWrt and AdGuard Home at an encrypted ΕΛΠΙΣ DNS resolver.">
 <meta name="theme-color" content="#f24f2f">
@@ -318,17 +318,39 @@ uci commit dhcp
 		</div>
 		<div class="doc-text">
 			ΕΛΠΙΣ is happy to sit upstream of your own filter. You keep the block lists
-			and the logs on your hardware; we answer what is left.
+			and the logs on your hardware; we answer what is left. There are two ways
+			round, and the difference is who does the filtering.
 		</div>
+
+		<div class="doc-text"><b>Filtered upstream &mdash; encrypted, with our lists</b></div>
 		<ol class="doc-steps">
 			<li>AdGuard Home: <b>Settings</b> &rarr; <b>DNS settings</b> &rarr; <b>Upstream DNS servers</b>, then paste one per line:</li>
 		</ol>
 		<div class="code-block"><pre data-picked="https">https://b.hitoha.moe/dns-query</pre></div>
+
+		<div class="doc-text">
+			<b>Raw upstream &mdash; recursion only, your lists</b><br />
+			The recursors resolve and nothing else: no block lists, no rewrites. Use
+			these when your own filter is the one making the decisions.
+		</div>
+		<div class="code-block"><pre>2402:4e20:b00b::1111
+2402:4e20:b00b::1001
+2402:4e20::1111
+2402:4e20::1001</pre></div>
+
 		<ol class="doc-steps" start="2" style="--start:1">
 			<li>Set <b>Load balancing</b> to <b>Parallel requests</b> if you listed more than one, click <b>Test upstreams</b>, then <b>Apply</b>.</li>
-			<li>Fill <b>Bootstrap DNS servers</b> with the addresses from the front page so the names above can be resolved on a cold start.</li>
-			<li>Pi-hole has no encrypted upstream of its own &mdash; run <code>cloudflared</code> or <code>dnscrypt-proxy</code> beside it and point Pi-hole at <code>127.0.0.1#5053</code>.</li>
+			<li>Fill <b>Bootstrap DNS servers</b> with the same four addresses, so the encrypted hostnames above can be resolved on a cold start.</li>
+			<li>Pi-hole has no encrypted upstream of its own &mdash; either give it the raw recursors directly, or run <code>cloudflared</code> or <code>dnscrypt-proxy</code> beside it and point Pi-hole at <code>127.0.0.1#5053</code>.</li>
 		</ol>
+		<div class="doc-note">
+			<i class="bi bi-info-circle"></i>
+			<div>
+				The raw recursors are IPv6 only. A box with no native v6 should take the
+				encrypted route instead &mdash; most entries in the table on the front
+				page answer over IPv4 as well.
+			</div>
+		</div>
 	</section>
 
 	<!-- Verify -->
@@ -414,9 +436,9 @@ uci commit dhcp
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-<script src="js/app-theme.js?version=2.7"></script>
-<script src="js/app-setup.js?version=2.7"></script>
-<script src="js/app-quote.js?version=2.7"></script>
+<script src="js/app-theme.js?version=3.3"></script>
+<script src="js/app-setup.js?version=3.3"></script>
+<script src="js/app-quote.js?version=3.3"></script>
 
 </body>
 </html>

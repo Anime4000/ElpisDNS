@@ -393,6 +393,15 @@ code,
 	gap:14px;
 }
 
+/* Six cards read better as two rows of three than as five and a stray. */
+.rules-3{
+	grid-template-columns:repeat(3,1fr);
+}
+
+@media (max-width:1199.98px){
+	.rules-3{ grid-template-columns:repeat(2,1fr) }
+}
+
 .rule{
 	background:var(--surface);
 	border:1px solid var(--line);
@@ -752,7 +761,8 @@ code,
 	margin-bottom:10px;
 }
 
-.bl-url{
+.bl-url,
+.copy-row{
 	display:flex;
 	align-items:center;
 	gap:10px;
@@ -765,7 +775,8 @@ code,
 	margin-top:6px;
 }
 
-.bl-url code{
+.bl-url code,
+.copy-row code{
 	flex:1;
 	min-width:0;
 
@@ -780,6 +791,27 @@ code,
 	color:var(--text-faint);
 	letter-spacing:.4px;
 	white-space:nowrap;
+}
+
+/* Exactly four addresses, so lay them out deliberately: one row on a
+   wide screen, two by two on a laptop, stacked on a phone. */
+.address-grid{
+	display:grid;
+	grid-template-columns:repeat(4,1fr);
+	gap:10px;
+}
+
+@media (max-width:1399.98px){
+	.address-grid{ grid-template-columns:repeat(2,1fr) }
+}
+
+.address-grid .copy-row{
+	margin-top:0;
+}
+
+.address-grid code{
+	font-size:14px;
+	color:var(--text);
 }
 
 /* ---------- call to action ---------- */
