@@ -1,0 +1,184 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$id": "https://elpis.violetnetworks.xyz/dns.schema.json",
+	"title": "ΕΛΠΙΣ DNS resolver database",
+	"description": "Schema for dns.json. Editors such as VS Code use this to autocomplete and validate contributions.",
+	"type": "object",
+	"required": ["resolvers"],
+	"additionalProperties": false,
+
+	"properties": {
+		"$schema": {
+			"type": "string",
+			"description": "Path to this schema file. Leave it as ./dns.schema.json."
+		},
+		"//": {
+			"type": "string",
+			"description": "Free-form comment. JSON has no comments, so this key is used instead."
+		},
+		"version": {
+			"type": "integer",
+			"description": "Database format version. Bump only when the shape of this file changes.",
+			"minimum": 1
+		},
+		"updated": {
+			"type": "string",
+			"description": "Date of the last change, YYYY-MM-DD.",
+			"pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+		},
+
+		"regions": {
+			"type": "array",
+			"description": "Regions offered in the Region selector. Add an entry here before referencing a new region code.",
+			"items": {
+				"type": "object",
+				"required": ["code", "label"],
+				"additionalProperties": false,
+				"properties": {
+					"code": {
+						"type": "string",
+						"description": "Short region code, usually the ISO 3166-1 alpha-2 country code.",
+						"pattern": "^[A-Z0-9-]{2,8}$"
+					},
+					"label": {
+						"type": "string",
+						"description": "Human readable name shown on the button."
+					}
+				}
+			}
+		},
+
+		"filters": {
+			"type": "array",
+			"description": "Filtering profiles offered in the Filter selector.",
+			"items": {
+				"type": "object",
+				"required": ["code", "label"],
+				"additionalProperties": false,
+				"properties": {
+					"code": {
+						"type": "string",
+						"description": "Internal profile code, for example NSFW or SFW."
+					},
+					"label": {
+						"type": "string",
+						"description": "Human readable name shown on the button."
+					},
+					"description": {
+						"type": "string",
+						"description": "One line explaining what this profile blocks."
+					}
+				}
+			}
+		},
+
+		"defaults": {
+			"type": "object",
+			"description": "Fallback values applied to every resolver that does not override them.",
+			"additionalProperties": false,
+			"properties": {
+				"dohPath": {
+					"type": "string",
+					"description": "Default DoH query path.",
+					"pattern": "^/",
+					"default": "/dns-query"
+				},
+				"dotPort": {
+					"type": "integer",
+					"description": "Default DoT port. 853 is the standard.",
+					"minimum": 1,
+					"maximum": 65535,
+					"default": 853
+				}
+			}
+		},
+
+		"resolvers": {
+			"type": "array",
+			"description": "Every resolver entry shown by the selector.",
+			"minItems": 1,
+			"items": { "$ref": "#/$defs/resolver" }
+		}
+	},
+
+	"$defs": {
+		"resolver": {
+			"type": "object",
+			"required": ["region", "provider", "filter", "network", "feature", "kind", "servers"],
+			"additionalProperties": false,
+			"properties": {
+				"id": {
+					"type": "string",
+					"description": "Unique slug for this entry, for example sg-shana-intl. Used for deep links.",
+					"pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+				},
+				"region": {
+					"type": "string",
+					"description": "Region code. Must match one of the codes in the top level regions list."
+				},
+				"provider": {
+					"type": "string",
+					"description": "Who runs the box. Shown in the Provider selector."
+				},
+				"filter": {
+					"type": "string",
+					"description": "Filtering profile code. Must match one of the codes in the top level filters list."
+				},
+				"network": {
+					"type": "string",
+					"description": "IP stack the resolver answers on.",
+					"examples": ["IPv4", "IPv6", "IPv4+IPv6"]
+				},
+				"feature": {
+					"type": "string",
+					"description": "What makes this entry different from its siblings.",
+					"examples": ["CDN", "International", "DNS64/NAT64"]
+				},
+				"kind": {
+					"type": "array",
+					"description": "Encrypted transports this resolver supports.",
+					"minItems": 1,
+					"uniqueItems": true,
+					"items": {
+						"type": "string",
+						"enum": ["DoH", "DoT", "DoQ"]
+					}
+				},
+				"servers": {
+					"type": "array",
+					"description": "Hostnames serving this entry. The site picks one at random so load stays spread out. Use hostnames only, no scheme and no path.",
+					"minItems": 1,
+					"uniqueItems": true,
+					"items": {
+						"type": "string",
+						"pattern": "^(?!https?://)[a-z0-9]([a-z0-9-]*[a-z0-9])?(\\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)+$"
+					}
+				},
+				"dohPath": {
+					"type": "string",
+					"description": "Override the DoH path when your server does not use /dns-query.",
+					"pattern": "^/"
+				},
+				"dotPort": {
+					"type": "integer",
+					"description": "Override the DoT port when your server does not listen on 853.",
+					"minimum": 1,
+					"maximum": 65535
+				},
+				"maintainer": {
+					"type": "string",
+					"description": "Who to poke when this entry breaks."
+				},
+				"homepage": {
+					"type": "string",
+					"description": "Link to the operator, AS page or status page.",
+					"format": "uri"
+				},
+				"notes": {
+					"type": "string",
+					"description": "One or two sentences shown to the user when this entry is selected."
+				}
+			}
+		}
+	}
+}

@@ -1,23 +1,73 @@
+@media (max-width: 992px){
+
+	.cta{
+		flex-direction:column;
+		align-items:flex-start;
+	}
+}
+
 @media (max-width: 768px){
+
+	/* TOP BAR */
+
+	.topbar-inner{
+		flex-wrap:wrap;
+		gap:8px;
+		padding:8px 4px;
+	}
+
+	.topbar-name{
+		font-size:17px;
+		letter-spacing:2px;
+	}
+
+	.topbar-link span{
+		display:none;
+	}
+
+	.topbar-link{
+		padding:8px 10px;
+		font-size:16px;
+	}
 
 	/* HERO */
 
 	.hero-banner{
-		height:160px;
-		background-position:center;
+		height:220px;
 	}
 
-	.hero-content{
-		padding:18px;
+	/* Narrow screens put the text straight over the bright half of
+	   the artwork, so the veil stays even the whole way across. */
+	.hero-overlay{
+		background:linear-gradient(
+			180deg,
+			rgba(8,9,11,.55) 0%,
+			rgba(8,9,11,.72) 100%
+		);
 	}
 
-	.brand{
-		font-size:34px;
+	.hero-kicker{
+		font-size:10px;
+		letter-spacing:3px;
+	}
+
+	.hero-title{
+		font-size:38px;
+		letter-spacing:3px;
 	}
 
 	.hero-subtitle{
 		font-size:14px;
-		line-height:1.5;
+		line-height:1.6;
+	}
+
+	.brand{
+		font-size:32px;
+		letter-spacing:2px;
+	}
+
+	.section-heading{
+		font-size:20px;
 	}
 
 	/* CONTENT */
@@ -27,11 +77,16 @@
 		padding-right:18px;
 	}
 
-	/* TITLE */
-
 	.subtitle{
 		font-size:15px;
 		line-height:1.7;
+		text-align:left;
+	}
+
+	/* HOUSE RULES */
+
+	.rules{
+		grid-template-columns:1fr;
 	}
 
 	/* SELECTOR LAYOUT */
@@ -46,8 +101,7 @@
 		min-width:100%;
 		margin-bottom:10px;
 		padding-top:0;
-		font-weight:600;
-		border-left:4px solid #999;
+		border-left:4px solid var(--accent);
 		padding-left:10px;
 	}
 
@@ -59,21 +113,16 @@
 		gap:6px;
 	}
 
+	.selector-options.full-width{
+		display:block !important;
+	}
+
 	/* FULL WIDTH */
 
 	.command-box{
 		width:100%;
 		overflow:hidden;
-	}
-
-	.selector-options{
-		display:grid;
-		grid-template-columns:1fr 1fr;
-		gap:6px;
-	}
-
-	.selector-options.full-width{
-		display:block !important;
+		padding:16px;
 	}
 
 	/* BUTTONS */
@@ -81,8 +130,15 @@
 	.option-btn{
 		width:100%;
 		min-width:0;
-		padding:14px 10px;
+		padding:14px 8px;
 		font-size:14px;
+		margin:0;
+	}
+
+	.btn-elpis,
+	.btn-elpis-ghost{
+		flex:1 1 auto;
+		justify-content:center;
 	}
 
 	/* ENDPOINT */
@@ -91,18 +147,27 @@
 		font-size:13px;
 		overflow-x:auto;
 		white-space:nowrap;
-	}
-
-	#copy-btn{
-		min-width:72px;
-		font-size:13px;
+		width:100%;
 	}
 
 	/* SUMMARY */
 
 	.selection-summary{
-		font-size:13px;
-		line-height:1.8;
+		font-size:13.5px;
+	}
+
+	/* SETUP PAGE */
+
+	.doc-jump{
+		flex-direction:column;
+	}
+
+	.doc-jump a{
+		width:100%;
+	}
+
+	.doc-section{
+		padding:18px;
 	}
 
 	/* FOOTER */
@@ -113,5 +178,9 @@
 
 	.footer-title{
 		margin-top:12px;
+	}
+
+	.footer-links{
+		align-items:center;
 	}
 }

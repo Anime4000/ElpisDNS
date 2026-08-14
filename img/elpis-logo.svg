@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 320" width="1200" height="320" role="img" aria-labelledby="elpis-logo-title">
+	<title id="elpis-logo-title">ΕΛΠΙΣ DNS</title>
+
+	<defs>
+		<linearGradient id="logoFlame" x1="60" y1="40" x2="300" y2="300" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#ffb072"/>
+			<stop offset="0.45" stop-color="#ff7a2f"/>
+			<stop offset="1" stop-color="#e2431f"/>
+		</linearGradient>
+
+		<linearGradient id="logoSteel" x1="40" y1="20" x2="300" y2="300" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#5c6067"/>
+			<stop offset="1" stop-color="#2a2d31"/>
+		</linearGradient>
+
+		<style>
+			/* Readable on a white README and on a dark page alike */
+			.wordmark{ fill:#1b1c1e; }
+			.tagline{ fill:#6b7078; }
+
+			@media (prefers-color-scheme: dark){
+				.wordmark{ fill:#e9e7e4; }
+				.tagline{ fill:#8b9099; }
+			}
+		</style>
+	</defs>
+
+	<!-- Mark -->
+	<g transform="translate(40 22) scale(0.54)">
+		<path
+			d="M256 20 L462 106 V272 C462 372 376 452 256 492 C136 452 50 372 50 272 V106 Z"
+			fill="url(#logoSteel)"/>
+
+		<path
+			d="M256 20 L462 106 V272 C462 372 376 452 256 492 C136 452 50 372 50 272 V106 Z"
+			fill="none"
+			stroke="url(#logoFlame)"
+			stroke-width="18"
+			stroke-linejoin="round"/>
+
+		<circle cx="256" cy="252" r="150"
+			fill="none"
+			stroke="#8b9099"
+			stroke-width="7"
+			stroke-opacity="0.55"
+			stroke-linecap="round"
+			stroke-dasharray="46 34"/>
+
+		<path
+			d="M332 162 H174 L260 252 L174 342 H332"
+			fill="none"
+			stroke="url(#logoFlame)"
+			stroke-width="40"
+			stroke-linecap="round"
+			stroke-linejoin="round"/>
+	</g>
+
+	<!-- Wordmark -->
+	<text x="360" y="168"
+		class="wordmark"
+		font-family="Oswald, 'Arial Narrow', 'Helvetica Neue', Arial, sans-serif"
+		font-size="118"
+		font-weight="600"
+		letter-spacing="10">ΕΛΠΙΣ <tspan fill="url(#logoFlame)">DNS</tspan></text>
+
+	<text x="364" y="226"
+		class="tagline"
+		font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif"
+		font-size="30"
+		letter-spacing="4">RESOLVE FREELY. ANSWER TO NO ONE.</text>
+</svg>

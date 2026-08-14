@@ -1,47 +1,119 @@
-![SakurakoWaifu](img/banner0.jpg)
+<p align="center">
+	<img src="img/elpis-logo.svg" alt="ΕΛΠΙΣ DNS" width="620">
+</p>
 
 # ΕΛΠΙΣ DNS
 
-Community-driven DNS infrastructure focused on privacy, low latency routing, CDN acceleration, and resilient accessibility across regional and international networks. Built upon the principles of an open internet and aligned with the vision of [EFF Internet Freedom and Privacy](https://www.eff.org/). 
+**Resolve freely. Answer to no one.**
 
-## DNS infrastructure focused on
+Every website you open begins with a question: *where is this?* Whoever answers
+that question owns your internet &mdash; they can log it, sell it, or decide that
+today, for reasons nobody wrote down, this particular door is closed.
 
-- Privacy
-- CDN acceleration
-- DNS64/NAT64
-- Internet freedom
-- Regional routing optimization
+ΕΛΠΙΣ DNS is a community-run set of encrypted resolvers so that question stays
+between you and someone who does not want anything from it. DoH and DoT only,
+regional routing, CDN acceleration, DNS64/NAT64, and no ledger of your curiosity.
+Aligned with the vision of [EFF Internet Freedom and Privacy](https://www.eff.org/).
 
-# Contributing
-Before submitting a pull request, please verify your changes locally.
+- **[Pick an endpoint](https://elpis.violetnetworks.xyz/)** &mdash; filter, region, provider, transport
+- **[Setup guide](https://elpis.violetnetworks.xyz/setup.html)** &mdash; Android, Windows, iOS, Firefox, Chrome, MikroTik, OpenWrt, AdGuard Home
+- **[Add your resolver](CONTRIBUTING.md)** &mdash; one JSON block, one pull request
 
-Start a local HTTP server:
+## What it is built on
+
+- Privacy first: encrypted transport, no query logging, no profiling
+- Ads, trackers, malware and phishing filtered by default
+- A Family profile with adult content blocked and safe search enforced
+- CDN acceleration and regional routing optimisation
+- DNS64/NAT64 for IPv6-only networks
+- Internet freedom &mdash; a block list is somebody's opinion, and the network was designed to route around exactly that
+
+## Adding your DoH/DoT resolver
+
+Everything the website shows comes out of one file: [`dns.json`](dns.json).
+Copy a block inside `resolvers`, change the values, open a pull request.
+
+```json
+{
+	"id": "sg-yourname-intl",
+	"region": "SG",
+	"provider": "Your Name",
+	"filter": "NSFW",
+	"network": "IPv4+IPv6",
+	"feature": "International",
+	"kind": ["DoH", "DoT"],
+	"maintainer": "Your Name",
+	"homepage": "https://example.com",
+	"notes": "One sentence the visitor sees when this entry is selected.",
+	"servers": ["dns.example.com"]
+}
+```
+
+Your editor validates as you type against [`dns.schema.json`](dns.schema.json).
+Non-standard DoH path or DoT port? Add `dohPath` or `dotPort`. A new country?
+Add it to the `regions` list at the top of the file and the button appears by
+itself. The full field reference and the expectations we have of a listed
+resolver are in **[CONTRIBUTING.md](CONTRIBUTING.md)**.
+
+## Running it locally
+
+No build step, no framework, no dependencies. Serve the folder:
+
 ```
 python -m http.server 8000
 ```
-Review your changes in the browser before opening a pull request.
 
-# Usage
+Then open <http://localhost:8000>. `file://` will not work &mdash; `dns.json` is
+fetched over HTTP.
 
-Quick way to use our DNS Resolver
+| File | What it holds |
+| --- | --- |
+| `dns.json` | Every resolver, region and filtering profile |
+| `dns.schema.json` | Schema that validates the above in your editor |
+| `index.html` | Front page and selector markup |
+| `setup.html` | Setup guide |
+| `style-main.css` | Colour tokens, light and dark themes, all components |
+| `style-mobile.css` | Narrow layout |
+| `js/app.js` | Selector engine, endpoint building, share links |
+| `js/app-theme.js` | System / light / dark switching |
+| `js/app-quote.js` | Footer quotes |
+| `js/app-mikrotik.js` | RouterOS `.rsc` generator |
+| `js/app-setup.js` | Setup page helpers |
 
-## Mikrotik
-### Configure basic DNS
-First, configure your router DNS settings:
+The site follows your operating system's light or dark preference out of the box;
+the icon in the top bar cycles system, light and dark, and the choice is remembered.
+
+## Usage
+
+Quick way to use our DNS resolvers. The [setup page](https://elpis.violetnetworks.xyz/setup.html)
+covers every platform in detail &mdash; here is the short version for routers.
+
+### Android
+
+Settings &rarr; Network &amp; internet &rarr; **Private DNS** &rarr; provider hostname:
+
+```
+b.hitoha.moe
+```
+
+### MikroTik
+
+Basic DNS first:
+
 ```rsc
 /ip dns
 set servers=1.0.0.1,1.1.1.1 allow-remote-requests=yes
 ```
 
-### Add DNS over HTTPS Forwarders
-Configure ΕΛΠΙΣ DNS DoH endpoints:
+DoH forwarders:
+
 ```rsc
 /ip dns forwarders
 add doh-servers="https://b.hitoha.moe/dns-query,https://c.hitoha.moe/dns-query,https://gg.hitoha.moe/dns-query" name=AdGuard
 ```
 
-### Add Static DNS Entries
-Add bootstrap IP addresses for DoH endpoints:
+Static entries so the router can find the resolver it is about to use:
+
 ```rsc
 /ip dns static
 add address=151.158.198.53 name=b.hitoha.moe type=A
@@ -50,7 +122,15 @@ add address=103.131.188.71 name=gg.hitoha.moe type=A
 add name=* forward-to=AdGuard type=FWD
 ```
 
-# Sponsor
+The front page will generate this file for whichever endpoint you pick &mdash;
+press **.rsc**.
+
+## Sponsor
+
 Proudly Sponsored by [Perfect Network](https://perfect.my/) ([AS154516](https://bgp.tools/as/154516))
 
 ![PERFECT](img/perfect.png)
+
+---
+
+*~ Part of Pururin Collective Project ~*

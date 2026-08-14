@@ -1,104 +1,161 @@
-[
+{
+	"$schema": "./dns.schema.json",
 
-	{
-		"region": "MY",
-		"provider": "Perfect Internet",
-		"filter": "SFW",
-		"network": "IPv4+IPv6",
-		"feature": "CDN",
-		"kind": ["DoH", "DoT"],
-		"servers": [
-			"a.hitoha.moe",
-			"a.curecomp.pro",
-			"a.curecomp.my",
-			"a.curecomp.com.my"
-		]
+	"//": "ΕΛΠΙΣ DNS resolver database. Everything the website shows is built from this file. To add your own DoH/DoT resolver, copy one block inside \"resolvers\", change the values, and open a pull request. Read CONTRIBUTING.md first.",
+
+	"version": 2,
+	"updated": "2026-08-15",
+
+	"regions": [
+		{ "code": "MY", "label": "Malaysia" },
+		{ "code": "SG", "label": "Singapore" },
+		{ "code": "ID", "label": "Indonesia" }
+	],
+
+	"filters": [
+		{
+			"code": "NSFW",
+			"label": "Standard",
+			"description": "Blocks ads, trackers, malware and phishing. Nothing else is touched."
+		},
+		{
+			"code": "SFW",
+			"label": "Family",
+			"description": "Everything in Standard, plus adult content and enforced safe search."
+		}
+	],
+
+	"defaults": {
+		"dohPath": "/dns-query",
+		"dotPort": 853
 	},
 
-	{
-		"region": "MY",
-		"provider": "Perfect Internet",
-		"filter": "NSFW",
-		"network": "IPv4+IPv6",
-		"feature": "CDN",
-		"kind": ["DoH", "DoT"],
-		"servers": [
-			"b.hitoha.moe",
-			"ryo.pururin.moe",
-			"kita.11777711.xyz",
-			"kyaru.godx-archlinux.space",
-			"manuka.violetnetworks.xyz",
-			"nijika.ryukura.biz.id",
-			"quic.undo.it",
-			"ms.info.gf"
-		]
-	},
+	"resolvers": [
+		{
+			"id": "my-perfect-family",
+			"region": "MY",
+			"provider": "Perfect Internet",
+			"filter": "SFW",
+			"network": "IPv4+IPv6",
+			"feature": "CDN",
+			"kind": ["DoH", "DoT"],
+			"maintainer": "Anime4000",
+			"homepage": "https://bgp.tools/as/154516",
+			"notes": "Family profile riding the Perfect Network CDN inside Malaysia.",
+			"servers": [
+				"a.hitoha.moe",
+				"a.curecomp.pro",
+				"a.curecomp.my",
+				"a.curecomp.com.my"
+			]
+		},
 
-	{
-		"region": "MY",
-		"provider": "Perfect Internet",
-		"filter": "NSFW",
-		"network": "IPv6",
-		"feature": "DNS64/NAT64",
-		"kind": ["DoH", "DoT"],
-		"servers": [
-			"64.hitoha.moe",
-			"64.ryukura.biz.id",
-			"64.undo.it"
-		]
-	},
+		{
+			"id": "my-perfect-standard",
+			"region": "MY",
+			"provider": "Perfect Internet",
+			"filter": "NSFW",
+			"network": "IPv4+IPv6",
+			"feature": "CDN",
+			"kind": ["DoH", "DoT"],
+			"maintainer": "Anime4000",
+			"homepage": "https://bgp.tools/as/154516",
+			"notes": "The everyday resolver. Local CDN answers, low latency across Malaysian eyeball networks.",
+			"servers": [
+				"b.hitoha.moe",
+				"ryo.pururin.moe",
+				"kita.11777711.xyz",
+				"kyaru.godx-archlinux.space",
+				"manuka.violetnetworks.xyz",
+				"nijika.ryukura.biz.id",
+				"quic.undo.it",
+				"ms.info.gf"
+			]
+		},
 
-	{
-		"region": "MY",
-		"provider": "Origin TechLab",
-		"filter": "NSFW",
-		"network": "IPv4+IPv6",
-		"feature": "CDN",
-		"kind": ["DoH", "DoT"],
-		"servers": [
-			"c.hitoha.moe",
-			"doh.originwifi.com.my"
-		]
-	},
+		{
+			"id": "my-perfect-nat64",
+			"region": "MY",
+			"provider": "Perfect Internet",
+			"filter": "NSFW",
+			"network": "IPv6",
+			"feature": "DNS64/NAT64",
+			"kind": ["DoH", "DoT"],
+			"maintainer": "Anime4000",
+			"homepage": "https://bgp.tools/as/154516",
+			"notes": "For IPv6-only networks. Synthesises AAAA records so legacy IPv4-only hosts stay reachable.",
+			"servers": [
+				"64.hitoha.moe",
+				"64.ryukura.biz.id",
+				"64.undo.it"
+			]
+		},
 
-	{
-		"region": "MY",
-		"provider": "Syahpian",
-		"filter": "NSFW",
-		"network": "IPv4+IPv6",
-		"feature": "International",
-		"kind": ["DoH", "DoT"],
-		"servers": [
-			"dns.pytonode.my.id"
-		]
-	},
+		{
+			"id": "my-origin-standard",
+			"region": "MY",
+			"provider": "Origin TechLab",
+			"filter": "NSFW",
+			"network": "IPv4+IPv6",
+			"feature": "CDN",
+			"kind": ["DoH", "DoT"],
+			"maintainer": "Origin TechLab",
+			"homepage": "https://bgp.tools/as/153334",
+			"notes": "Second opinion inside Malaysia, useful when one upstream is having a bad day.",
+			"servers": [
+				"c.hitoha.moe",
+				"doh.originwifi.com.my"
+			]
+		},
 
-	{
-		"region": "SG",
-		"provider": "Shana Network",
-		"filter": "NSFW",
-		"network": "IPv4",
-		"feature": "International",
-		"kind": ["DoH", "DoT"],
-		"servers": [
-			"gg.hitoha.moe",
-			"shana.ryukura.biz.id",
-			"sanana.violetnetworks.xyz",
-			"mcmc.undo.it",
-			"gg.info.gf"
-		]
-	},
+		{
+			"id": "my-syahpian-intl",
+			"region": "MY",
+			"provider": "Syahpian",
+			"filter": "NSFW",
+			"network": "IPv4+IPv6",
+			"feature": "International",
+			"kind": ["DoH", "DoT"],
+			"maintainer": "Syahpian",
+			"notes": "Community operated, tuned for international transit rather than local CDN.",
+			"servers": [
+				"dns.pytonode.my.id"
+			]
+		},
 
-	{
-		"region": "ID",
-		"provider": "Ryukura",
-		"filter": "NSFW",
-		"network": "IPv4+IPv6",
-		"feature": "International",
-		"kind": ["DoH", "DoT"],
-		"servers": [
-			"dns.ryukura.biz.id"
-		]
-	}
+		{
+			"id": "sg-shana-intl",
+			"region": "SG",
+			"provider": "Shana Network",
+			"filter": "NSFW",
+			"network": "IPv4",
+			"feature": "International",
+			"kind": ["DoH", "DoT"],
+			"maintainer": "Shana Network",
+			"homepage": "https://bgp.tools/as/135134",
+			"notes": "Answers from Singapore. The way out when a local resolver develops opinions.",
+			"servers": [
+				"gg.hitoha.moe",
+				"shana.ryukura.biz.id",
+				"sanana.violetnetworks.xyz",
+				"mcmc.undo.it",
+				"gg.info.gf"
+			]
+		},
 
-]
+		{
+			"id": "id-ryukura-intl",
+			"region": "ID",
+			"provider": "Ryukura",
+			"filter": "NSFW",
+			"network": "IPv4+IPv6",
+			"feature": "International",
+			"kind": ["DoH", "DoT"],
+			"maintainer": "Ryukura",
+			"notes": "Indonesian entry point, maintained by the Ryukura crew.",
+			"servers": [
+				"dns.ryukura.biz.id"
+			]
+		}
+	]
+}
