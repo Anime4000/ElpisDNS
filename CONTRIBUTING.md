@@ -101,10 +101,12 @@ plan to run it. That is the whole ritual.
 | --- | --- |
 | `index.html` | The front page and the selector markup |
 | `setup.html` | The setup guide, linked from the top bar |
+| `mission.html` | Why ΕΛΠΙΣ exists: block lists, recursion, the raw resolvers |
 | `style-main.css` | Every colour token, both themes, all components |
 | `style-mobile.css` | The narrow layout |
 | `js/app.js` | Selector engine, endpoint building, share links |
 | `js/app-theme.js` | System, light and dark switching |
+| `js/app-copy.js` | Clipboard, shared by every page |
 | `js/app-quote.js` | Footer quotes |
 | `js/app-mikrotik.js` | The `.rsc` generator |
 | `js/app-setup.js` | Setup page helpers |

@@ -16,6 +16,7 @@ regional routing, CDN acceleration, DNS64/NAT64, and no ledger of your curiosity
 Aligned with the vision of [EFF Internet Freedom and Privacy](https://www.eff.org/).
 
 - **[Pick an endpoint](https://elpis.violetnetworks.xyz/)** &mdash; filter, region, provider, transport
+- **[Why ΕΛΠΙΣ](https://elpis.violetnetworks.xyz/mission.html)** &mdash; what we block, what we refuse to keep, and how to check it
 - **[Setup guide](https://elpis.violetnetworks.xyz/setup.html)** &mdash; Android, Windows, iOS, Firefox, Chrome, MikroTik, OpenWrt, AdGuard Home
 - **[Add your resolver](CONTRIBUTING.md)** &mdash; one JSON block, one pull request
 
@@ -72,10 +73,12 @@ fetched over HTTP.
 | `dns.schema.json` | Schema that validates the above in your editor |
 | `index.html` | Front page and selector markup |
 | `setup.html` | Setup guide |
+| `mission.html` | Why ΕΛΠΙΣ exists: block lists, recursion, the raw resolvers |
 | `style-main.css` | Colour tokens, light and dark themes, all components |
 | `style-mobile.css` | Narrow layout |
 | `js/app.js` | Selector engine, endpoint building, share links |
 | `js/app-theme.js` | System / light / dark switching |
+| `js/app-copy.js` | Clipboard, shared by every page |
 | `js/app-quote.js` | Footer quotes |
 | `js/app-mikrotik.js` | RouterOS `.rsc` generator |
 | `js/app-setup.js` | Setup page helpers |

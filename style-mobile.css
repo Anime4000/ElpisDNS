@@ -170,6 +170,12 @@
 		grid-template-columns:1fr;
 	}
 
+	/* GATES */
+
+	.gates{
+		grid-template-columns:1fr;
+	}
+
 	/* BLACKLIST */
 
 	.bl-item > summary{

@@ -471,27 +471,7 @@ function readHash(){
 
 /* ---------- clipboard ---------- */
 
-async function copy(text, button, done){
-
-	const original = button.innerHTML;
-
-	try{
-
-		await navigator.clipboard.writeText(text);
-
-		button.innerHTML = `<i class="bi bi-check2"></i> ${done}`;
-
-	} catch(err){
-
-		console.error(err);
-
-		button.innerHTML = `<i class="bi bi-x-lg"></i> Blocked`;
-	}
-
-	setTimeout(() => {
-		button.innerHTML = original;
-	}, 1400);
-}
+// copy() comes from app-copy.js, loaded ahead of this file.
 
 function hostnameOf(endpoint){
 
@@ -542,14 +522,6 @@ wire("shuffle-btn", () => {
 	setText("endpoint", endpoint);
 
 	remember(endpoint);
-});
-
-// Anything carrying data-copy hands its value to the clipboard.
-// Used by the blocklist subscription URLs.
-document.querySelectorAll("[data-copy]").forEach(button => {
-
-	button.onclick = event =>
-		copy(button.dataset.copy, event.currentTarget, "Copied");
 });
 
 window.addEventListener("hashchange", () => {

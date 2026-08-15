@@ -59,8 +59,8 @@ perditus✝paradisus
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-<link href="style-main.css?version=3.4" rel="stylesheet">
-<link href="style-mobile.css?version=3.4" rel="stylesheet">
+<link href="style-main.css?version=3.8" rel="stylesheet">
+<link href="style-mobile.css?version=3.8" rel="stylesheet">
 
 <meta name="description" content="Encrypted DoH and DoT resolvers run by the community. No censorship, no surveillance, no ledger of your curiosity. Pick a region, pick a transport, take the endpoint.">
 
@@ -164,46 +164,6 @@ perditus✝paradisus
 		</div>
 	</div>
 
-	<!-- House rules - stright to the point
-	<div class="rules mb-5">
-
-		<div class="rule">
-			<div class="rule-index">01</div>
-			<div class="rule-title">The question is nobody's business</div>
-			<div class="rule-text">
-				A list of the names you look up is a confession you never agreed to make.
-				Encrypted transport keeps that confession between you and the resolver.
-			</div>
-		</div>
-
-		<div class="rule">
-			<div class="rule-index">02</div>
-			<div class="rule-title">Censorship is just bad routing</div>
-			<div class="rule-text">
-				A block list is somebody's opinion, enforced with a hammer, on a network
-				that was designed to route around exactly that.
-			</div>
-		</div>
-
-		<div class="rule">
-			<div class="rule-index">03</div>
-			<div class="rule-title">Monitoring arrives dressed as convenience</div>
-			<div class="rule-text">
-				The free resolver handed to you by default is rarely free. Somewhere, a
-				column with your name on it is being sorted.
-			</div>
-		</div>
-
-		<div class="rule">
-			<div class="rule-index">04</div>
-			<div class="rule-title">Your curiosity is not merchandise</div>
-			<div class="rule-text">
-				ΕΛΠΙΣ exists to answer the question and then forget it was asked. That is
-				the whole arrangement. No ledger, no profile, no sales pitch.
-			</div>
-		</div>
-	</div>
-	-->
 
 	<div class="section-heading">The table</div>
 
@@ -349,348 +309,98 @@ perditus✝paradisus
 		</a>
 	</div>
 
-	<!-- Blacklist -->
-	<div class="mt-5 pt-3">
-		<div class="section-heading">
-			The Blacklist
-		</div>
-		<div class="subtitle">
-			Every name on it earned its place. Ads, trackers, malware, phishing kits,
-			and the quiet little domains that exist for no reason other than to follow
-			you home &mdash; the resolver simply declines to tell you where they live.
-			Nothing to install, nothing to configure: it is already running on the
-			endpoint you picked above.
-			<br /><br />
-			These are the lists doing the work. They are not ours to hoard, so the
-			subscription URLs are right here &mdash; take them for your own AdGuard Home,
-			Pi-hole or Blocky.
-		</div>
-
-		<div class="blacklist mt-4">
-
-			<details class="bl-item">
-				<summary>
-					<span class="bl-index">01</span>
-					<span class="bl-name">AdGuard DNS filter</span>
-					<span class="bl-tag">ADS &amp; TRACKING</span>
-					<i class="bi bi-chevron-down bl-chev"></i>
-				</summary>
-				<div class="bl-body">
-					<div class="bl-text">
-						The workhorse. AdGuard Base, Social Media, Tracking Protection and Mobile
-					Ads rolled together with EasyList and EasyPrivacy, compiled for DNS rather
-					than for a browser.
-					</div>
-					<div class="bl-url">
-						<code>https://adguardteam.github.io/HostlistsRegistry/assets/filter_1.txt</code>
-						<button class="btn btn-elpis-ghost btn-sm" type="button" data-copy="https://adguardteam.github.io/HostlistsRegistry/assets/filter_1.txt">
-							<i class="bi bi-clipboard"></i> Copy
-						</button>
-					</div>
-					<a class="bl-src" href="https://github.com/AdguardTeam/AdGuardSDNSFilter" target="_blank" rel="noopener">
-						<i class="bi bi-box-arrow-up-right"></i> Where it comes from
-					</a>
-				</div>
-			</details>
-
-			<details class="bl-item">
-				<summary>
-					<span class="bl-index">02</span>
-					<span class="bl-name">AdAway Default Blocklist</span>
-					<span class="bl-tag">MOBILE ADS</span>
-					<i class="bi bi-chevron-down bl-chev"></i>
-				</summary>
-				<div class="bl-body">
-					<div class="bl-text">
-						Fifteen years of Android ad hosts, maintained by people who got tired of
-					paying for the same banner twice on a metered connection.
-					</div>
-					<div class="bl-url">
-						<code>https://adguardteam.github.io/HostlistsRegistry/assets/filter_2.txt</code>
-						<button class="btn btn-elpis-ghost btn-sm" type="button" data-copy="https://adguardteam.github.io/HostlistsRegistry/assets/filter_2.txt">
-							<i class="bi bi-clipboard"></i> Copy
-						</button>
-					</div>
-					<a class="bl-src" href="https://github.com/AdAway/adaway.github.io/" target="_blank" rel="noopener">
-						<i class="bi bi-box-arrow-up-right"></i> Where it comes from
-					</a>
-				</div>
-			</details>
-
-			<details class="bl-item">
-				<summary>
-					<span class="bl-index">03</span>
-					<span class="bl-name">uBlock&#8320; filters &ndash; Badware risks</span>
-					<span class="bl-tag">BADWARE</span>
-					<i class="bi bi-chevron-down bl-chev"></i>
-				</summary>
-				<div class="bl-body">
-					<div class="bl-text">
-						The short list of sites documented to hand you adware, crapware or malware,
-					or to relieve you of your login credentials. Short, because every entry on
-					it is there for a reason somebody wrote down.
-					</div>
-					<div class="bl-url">
-						<code>https://adguardteam.github.io/HostlistsRegistry/assets/filter_50.txt</code>
-						<button class="btn btn-elpis-ghost btn-sm" type="button" data-copy="https://adguardteam.github.io/HostlistsRegistry/assets/filter_50.txt">
-							<i class="bi bi-clipboard"></i> Copy
-						</button>
-					</div>
-					<a class="bl-src" href="https://github.com/uBlockOrigin/uAssets" target="_blank" rel="noopener">
-						<i class="bi bi-box-arrow-up-right"></i> Where it comes from
-					</a>
-				</div>
-			</details>
-
-			<details class="bl-item">
-				<summary>
-					<span class="bl-index">04</span>
-					<span class="bl-name">ΕΛΠΙΣ DNS filter</span>
-					<span class="bl-tag bl-tag-ours">IN HOUSE</span>
-					<i class="bi bi-chevron-down bl-chev"></i>
-				</summary>
-				<div class="bl-body">
-					<div class="bl-text">
-						Ours. Bogus, dead, parked, deceptive and legally abusive domains the big
-					lists have not got around to, reviewed and trimmed for DNS by @Riri1x86.
-					It ships with an exceptions list, because a filter that breaks your bank
-					login is not protecting you from anything.
-					</div>
-					<div class="bl-url">
-						<code>https://elpis.violetnetworks.xyz/bogus.txt</code>
-						<button class="btn btn-elpis-ghost btn-sm" type="button" data-copy="https://elpis.violetnetworks.xyz/bogus.txt">
-							<i class="bi bi-clipboard"></i> Copy
-						</button>
-					</div>
-					<div class="bl-url">
-						<code>https://elpis.violetnetworks.xyz/allow.txt</code>
-						<span class="bl-note">exceptions, load as an allowlist</span>
-						<button class="btn btn-elpis-ghost btn-sm" type="button" data-copy="https://elpis.violetnetworks.xyz/allow.txt">
-							<i class="bi bi-clipboard"></i> Copy
-						</button>
-					</div>
-					<a class="bl-src" href="https://riri.pururin.moe/" target="_blank" rel="noopener">
-						<i class="bi bi-box-arrow-up-right"></i> Where it comes from
-					</a>
-				</div>
-			</details>
-		</div>
-
-		<div class="subtitle mt-4">
-			<b>Family</b> adds adult content and enforced safe search on top of all four.
-			Everything else is left exactly where it is &mdash; a resolver that quietly
-			edits the rest of your internet is the thing this project exists to route
-			around.
-		</div>
+	<!-- Gates into the mission page -->
+	<div class="section-heading mt-5">
+		Why this exists
+	</div>
+	<div class="subtitle mb-4">
+		Four things worth knowing before you trust anyone with the question
+		<i>where is this?</i> &mdash; including us.
 	</div>
 
-	<!-- Recursive -->
-	<div class="mt-5 pt-3">
-		<div class="section-heading">
-			No Middlemen
-		</div>
-		<div class="subtitle">
-			Most privacy resolvers are a polite fiction. Your question arrives sealed,
-			and is then handed straight to Google or Cloudflare in the clear. One
-			padlock, two custodians, and the second one keeps records.
-			<br /><br />
-			ΕΛΠΙΣ answers it itself. The query goes to the root servers, down through
-			the TLD, to the authoritative server that actually holds the answer &mdash;
-			asked from our own hardware, on our own AS, over our own transit.
-			<b>Total privacy, total independence.</b> There is nobody upstream to sell
-			you to, because there is nobody upstream.
-		</div>
+	<div class="gates">
 
-		<div class="rules rules-3 mt-4">
+		<a class="gate" href="mission.html#blacklist">
+			<i class="bi bi-slash-circle gate-icon"></i>
+			<div class="gate-title">The Blacklist</div>
+			<div class="gate-text">
+				The four lists that decide which names never resolve, and the
+				subscription URLs for all of them.
+			</div>
+			<span class="gate-more">What we block <i class="bi bi-arrow-right-short"></i></span>
+		</a>
 
-			<div class="rule">
-				<div class="rule-index">RECURSIVE</div>
-				<div class="rule-title">We ask, nobody asks for us</div>
-				<div class="rule-text">
-					Root, then TLD, then the authoritative name server. No forwarding to a
-					household name, and no third party quietly assembling the other half
-					of your day.
-				</div>
+		<a class="gate" href="mission.html#middlemen">
+			<i class="bi bi-diagram-3 gate-icon"></i>
+			<div class="gate-title">No Middlemen</div>
+			<div class="gate-text">
+				Our own recursion, straight to the root servers. IPv6 first, EDNS,
+				DNSSEC, ECH, and nobody upstream keeping a ledger.
 			</div>
+			<span class="gate-more">How we answer <i class="bi bi-arrow-right-short"></i></span>
+		</a>
 
-			<div class="rule">
-				<div class="rule-index">IPv6 FIRST</div>
-				<div class="rule-title">The address space that is not rationed</div>
-				<div class="rule-text">
-					Native v6 from the resolver out, AAAA ahead of A, and DNS64/NAT64 for
-					networks that have finished with IPv4 entirely.
-				</div>
+		<a class="gate" href="mission.html#recursors">
+			<i class="bi bi-hdd-network gate-icon"></i>
+			<div class="gate-title">Recursive resolvers</div>
+			<div class="gate-text">
+				Raw IPv6 recursion, unfiltered on purpose, for anyone running
+				AdGuard Home, Pi-hole or Blocky of their own.
 			</div>
+			<span class="gate-more">Bring your own filter <i class="bi bi-arrow-right-short"></i></span>
+		</a>
 
-			<div class="rule">
-				<div class="rule-index">EDNS(0)</div>
-				<div class="rule-title">Room to answer properly</div>
-				<div class="rule-text">
-					Responses larger than 512 bytes, DNS cookies, and the headroom that
-					signatures need. The modern internet does not fit in a packet designed
-					in 1987.
-				</div>
+		<a class="gate" href="mission.html#bootstrap">
+			<i class="bi bi-signpost-split gate-icon"></i>
+			<div class="gate-title">Bootstrap DNS</div>
+			<div class="gate-text">
+				Something has to resolve the resolver. These plain addresses exist
+				for that one moment and nothing else.
 			</div>
-
-			<div class="rule">
-				<div class="rule-index">DNSSEC</div>
-				<div class="rule-title">Signatures checked, not admired</div>
-				<div class="rule-text">
-					A tampered answer fails instead of arriving with a shrug. Ask for a
-					domain whose chain is broken &mdash; wrong signature, expired, missing
-					&mdash; and you get nothing at all, which is the only honest reply.
-					ECDSA P-256, P-384 and Ed25519.
-				</div>
-			</div>
-
-			<div class="rule">
-				<div class="rule-index">ECH</div>
-				<div class="rule-title">The handshake stays shut</div>
-				<div class="rule-text">
-					HTTPS and SVCB records served intact, <code class="inline-code">ech</code>
-					parameter and all, so your browser can encrypt its Client Hello and stop
-					announcing which site it wants before it has even asked.
-				</div>
-			</div>
-
-			<div class="rule">
-				<div class="rule-index">VERIFY</div>
-				<div class="rule-title">Take nobody's word for it</div>
-				<div class="rule-text">
-					Ours least of all.
-					<a href="https://dnscheck.tools/" target="_blank" rel="noopener">dnscheck.tools</a>
-					reports who actually answered you, from which network, and what they
-					bothered to validate.
-				</div>
-			</div>
-		</div>
-
-		<div class="section-heading mt-5">
-			Recursive resolvers &mdash; IPv6
-		</div>
-		<div class="subtitle">
-			The recursors themselves, on plain port 53, doing exactly one thing:
-			resolving. No block lists, no rewrites, no NXDOMAIN where an answer ought
-			to be. Whatever the authoritative server says is what comes back, whether
-			we approve of it or not.
-			<br /><br />
-			Which makes these the wrong thing to hand a laptop, and the right thing to
-			put behind a box that already does its own filtering. Running
-			<b>AdGuard Home</b>, <b>Pi-hole</b>, <b>Blocky</b>, <b>Technitium</b> or
-			anything of that family? Set these as your upstream. You keep your lists,
-			your logs and your rules; we do the recursion, and your household stops
-			handing every query it makes to Google or Cloudflare on the way out.
-			They work in the <b>bootstrap</b> field too &mdash; the one that has to
-			resolve an encrypted endpoint's hostname before the encryption can begin.
-		</div>
-
-		<div class="doc-note mt-3">
-			<i class="bi bi-info-circle"></i>
-			<div>
-				<b>IPv6 only, and unfiltered on purpose.</b> If you want The Blacklist
-				doing its work as well, that lives on the encrypted endpoints in the
-				table above &mdash; the same resolvers with the filtering in front of
-				them. Wiring one up as an upstream is on the
-				<a href="setup.html#adguard">setup page</a>.
-			</div>
-		</div>
-
-		<div class="address-grid mt-3">
-			<div class="copy-row">
-				<code>2402:4e20:b00b::1111</code>
-				<button class="btn btn-elpis-ghost btn-sm" type="button"
-					data-copy="2402:4e20:b00b::1111">
-					<i class="bi bi-clipboard"></i> Copy
-				</button>
-			</div>
-			<div class="copy-row">
-				<code>2402:4e20:b00b::1001</code>
-				<button class="btn btn-elpis-ghost btn-sm" type="button"
-					data-copy="2402:4e20:b00b::1001">
-					<i class="bi bi-clipboard"></i> Copy
-				</button>
-			</div>
-			<div class="copy-row">
-				<code>2402:4e20::1111</code>
-				<button class="btn btn-elpis-ghost btn-sm" type="button"
-					data-copy="2402:4e20::1111">
-					<i class="bi bi-clipboard"></i> Copy
-				</button>
-			</div>
-			<div class="copy-row">
-				<code>2402:4e20::1001</code>
-				<button class="btn btn-elpis-ghost btn-sm" type="button"
-					data-copy="2402:4e20::1001">
-					<i class="bi bi-clipboard"></i> Copy
-				</button>
-			</div>
-		</div>
-
-		<div class="cta mt-4">
-			<div class="cta-body">
-				<div class="cta-title">Then go and check</div>
-				<div class="cta-text">
-					One page, no account, no install. Set correctly you should see
-					<b>IPv6</b>, <b>EDNS</b>, <b>DNSSEC</b> and <b>ECH</b> all lit,
-					every signature test passing, and your resolver named as
-					Perfect Network in Semenyih &mdash; not as your telco.
-				</div>
-			</div>
-			<a class="btn btn-elpis" href="https://dnscheck.tools/" target="_blank" rel="noopener">
-				<i class="bi bi-clipboard-check"></i> Run dnscheck.tools
-			</a>
-		</div>
+			<span class="gate-more">The cold start <i class="bi bi-arrow-right-short"></i></span>
+		</a>
 	</div>
 
-	<!-- Bootstrap DNS -->
-	<div class="mt-5 pt-3">
-		<div class="section-heading">
-			Bootstrap DNS servers
+	<!-- House rules - straight to the point -->
+	<div class="section-heading mt-5">
+		House rules
+	</div>
+	<div class="rules my-4">
+
+		<div class="rule">
+			<div class="rule-index">01</div>
+			<div class="rule-title">The question is nobody's business</div>
+			<div class="rule-text">
+				A list of the names you look up is a confession you never agreed to make.
+				Encrypted transport keeps that confession between you and the resolver.
+			</div>
 		</div>
-		<div class="subtitle">
-			A chicken and egg problem: to reach an encrypted resolver by name, something has
-			to resolve that name first. These plain resolvers exist for that single moment,
-			and for nothing else. Most clients call the field <i>bootstrap</i>. The four
-			recursors above do the job equally well if the box has IPv6; the addresses here
-			are what you need when it does not.
+
+		<div class="rule">
+			<div class="rule-index">02</div>
+			<div class="rule-title">Censorship is just bad routing</div>
+			<div class="rule-text">
+				A block list is somebody's opinion, enforced with a hammer, on a network
+				that was designed to route around exactly that.
+			</div>
 		</div>
-		<div class="table-responsive">
-			<table class="table table-hover mt-3">
-				<thead>
-				<tr>
-					<th>AS</th>
-					<th>IPv4</th>
-					<th>IPv6</th>
-				</tr>
-				</thead>
-				<tbody class="table-group-divider">
-				<tr>
-					<td>AS154516</td>
-					<td>151.158.198.49</td>
-					<td>2402:4e20::b00b</td>
-				</tr>
-				<tr>
-					<td></td>
-					<td>151.158.198.24</td>
-					<td>2402:4e20:198::2</td>
-				</tr>
-				<tr>
-					<td></td>
-					<td>151.158.198.23</td>
-					<td>-</td>
-				</tr>
-				<tr>
-					<td>AS4788</td>
-					<td>175.143.78.185</td>
-					<td>-</td>
-				</tr>
-				<tr>
-					<td></td>
-					<td>60.54.118.241</td>
-					<td>-</td>
-				</tr>
-				</tbody>
-			</table>
+
+		<div class="rule">
+			<div class="rule-index">03</div>
+			<div class="rule-title">Monitoring arrives dressed as convenience</div>
+			<div class="rule-text">
+				The free resolver handed to you by default is rarely free. Somewhere, a
+				column with your name on it is being sorted.
+			</div>
+		</div>
+
+		<div class="rule">
+			<div class="rule-index">04</div>
+			<div class="rule-title">Your curiosity is not merchandise</div>
+			<div class="rule-text">
+				ΕΛΠΙΣ exists to answer the question and then forget it was asked. That is
+				the whole arrangement. No ledger, no profile, no sales pitch.
+			</div>
 		</div>
 	</div>
 
@@ -728,6 +438,7 @@ perditus✝paradisus
 						<a href="https://www.eff.org/" target="_blank" rel="noopener">EFF Internet Freedom and Privacy</a>.
 					</p>
 					<p>
+						<a href="mission.html">Why ΕΛΠΙΣ</a> &bull;
 						<a href="setup.html">Setup guide</a> &bull;
 						<a href="https://github.com/PururinCollective/ElpisDNS" target="_blank" rel="noopener">Source</a>
 					</p>
@@ -784,10 +495,11 @@ perditus✝paradisus
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-<script src="js/app-theme.js?version=3.4"></script>
-<script src="js/app.js?version=3.4"></script>
-<script src="js/app-quote.js?version=3.4"></script>
-<script src="js/app-mikrotik.js?version=3.4"></script>
+<script src="js/app-theme.js?version=3.8"></script>
+<script src="js/app-copy.js?version=3.8"></script>
+<script src="js/app.js?version=3.8"></script>
+<script src="js/app-quote.js?version=3.8"></script>
+<script src="js/app-mikrotik.js?version=3.8"></script>
 
 </body>
 </html>

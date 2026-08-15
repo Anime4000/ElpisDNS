@@ -674,6 +674,99 @@ code,
 	color:var(--on-accent);
 }
 
+/* ---------- gates ---------- */
+
+/*
+	Four cards on the front page, each a doorway into the mission page.
+	The detail used to sit inline and made the page twice as long; now
+	the front page stays about picking an endpoint, and anyone who wants
+	the reasoning clicks through.
+*/
+
+.gates{
+	display:grid;
+	grid-template-columns:repeat(4,1fr);
+	gap:14px;
+}
+
+@media (max-width:1199.98px){
+	.gates{ grid-template-columns:repeat(2,1fr) }
+}
+
+.gate{
+	display:flex;
+	flex-direction:column;
+
+	background:var(--surface);
+	border:1px solid var(--line);
+	border-top:3px solid var(--accent);
+	border-radius:var(--radius);
+	padding:20px;
+
+	color:var(--text);
+	text-decoration:none;
+
+	transition:var(--speed);
+}
+
+.gate:hover{
+	color:var(--text);
+	text-decoration:none;
+	border-color:var(--line-strong);
+	border-top-color:var(--accent);
+	box-shadow:var(--shadow);
+	transform:translateY(-2px);
+}
+
+.gate-icon{
+	font-size:22px;
+	color:var(--accent);
+	margin-bottom:12px;
+}
+
+.gate-title{
+	font-family:var(--font-display);
+	font-size:21px;
+	font-weight:500;
+	letter-spacing:1px;
+	margin-bottom:8px;
+	color:var(--text);
+}
+
+.gate-text{
+	flex:1;
+
+	color:var(--text-soft);
+	font-size:14.5px;
+	line-height:1.65;
+	margin-bottom:14px;
+}
+
+.gate-more{
+	display:inline-flex;
+	align-items:center;
+	gap:2px;
+
+	font-family:var(--font-display);
+	font-size:12px;
+	letter-spacing:2px;
+	text-transform:uppercase;
+	color:var(--accent);
+}
+
+.gate:hover .gate-more{
+	color:var(--accent-strong);
+}
+
+.gate-more i{
+	font-size:18px;
+	transition:transform var(--speed);
+}
+
+.gate:hover .gate-more i{
+	transform:translateX(3px);
+}
+
 /* ---------- blacklist ---------- */
 
 /*
