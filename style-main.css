@@ -676,71 +676,89 @@ code,
 
 /* ---------- blacklist ---------- */
 
+/*
+	Each entry is a native <details>. Closed, the section is four one-line
+	rows; open, it shows the description and the subscription URLs. No
+	JavaScript involved - the disclosure widget the browser already ships
+	is keyboard accessible and survives having the script blocked.
+*/
+
 .blacklist{
 	display:flex;
 	flex-direction:column;
-	gap:10px;
+	gap:8px;
 }
 
 .bl-item{
-	display:flex;
-	gap:16px;
-
 	background:var(--surface);
 	border:1px solid var(--line);
 	border-left:4px solid var(--accent);
 	border-radius:var(--radius);
-	padding:18px 20px;
-
 	transition:var(--speed);
 }
 
 .bl-item:hover{
 	border-color:var(--line-strong);
 	border-left-color:var(--accent);
+}
+
+.bl-item[open]{
 	box-shadow:var(--shadow);
+}
+
+.bl-item > summary{
+	display:flex;
+	align-items:center;
+	gap:14px;
+
+	padding:13px 18px;
+
+	cursor:pointer;
+	list-style:none;
+	-webkit-user-select:none;
+	user-select:none;
+}
+
+/* Chrome and Safari draw their own triangle unless told otherwise. */
+.bl-item > summary::-webkit-details-marker{
+	display:none;
+}
+
+.bl-item > summary:focus-visible{
+	outline:2px solid var(--accent);
+	outline-offset:-2px;
+}
+
+.bl-item > summary:hover .bl-name{
+	color:var(--accent);
 }
 
 .bl-index{
 	font-family:var(--font-display);
-	font-size:22px;
+	font-size:19px;
 	letter-spacing:2px;
 	color:var(--accent);
 	opacity:.7;
-	min-width:34px;
-}
-
-.bl-body{
-	flex:1;
-	min-width:0;
+	min-width:30px;
 }
 
 .bl-name{
-	display:flex;
-	align-items:center;
-	flex-wrap:wrap;
-	gap:10px;
+	flex:1;
 
 	font-family:var(--font-display);
-	font-size:20px;
+	font-size:19px;
 	font-weight:500;
 	letter-spacing:.8px;
-	margin-bottom:6px;
-}
-
-.bl-name a{
 	color:var(--text);
-}
 
-.bl-name a:hover{
-	color:var(--accent);
-	text-decoration:none;
+	transition:var(--speed);
 }
 
 .bl-tag{
 	font-family:var(--font-display);
 	font-size:10.5px;
 	letter-spacing:2px;
+	white-space:nowrap;
 
 	color:var(--text-faint);
 	border:1px solid var(--line);
@@ -752,6 +770,31 @@ code,
 	color:var(--accent);
 	border-color:var(--accent);
 	background:var(--accent-soft);
+}
+
+.bl-chev{
+	color:var(--text-faint);
+	font-size:13px;
+	transition:transform var(--speed);
+}
+
+.bl-item[open] .bl-chev{
+	transform:rotate(180deg);
+}
+
+/* Indented to line up under the name, not under the number. */
+.bl-body{
+	padding:0 18px 16px 62px;
+	animation:bl-reveal .18s ease-out;
+}
+
+@keyframes bl-reveal{
+	from{ opacity:0; transform:translateY(-4px) }
+	to{ opacity:1; transform:none }
+}
+
+@media (prefers-reduced-motion: reduce){
+	.bl-body{ animation:none }
 }
 
 .bl-text{
@@ -793,8 +836,21 @@ code,
 	white-space:nowrap;
 }
 
-/* Exactly four addresses, so lay them out deliberately: one row on a
-   wide screen, two by two on a laptop, stacked on a phone. */
+.bl-src{
+	display:inline-flex;
+	align-items:center;
+	gap:6px;
+
+	margin-top:12px;
+	font-size:13px;
+	color:var(--text-faint);
+}
+
+.bl-src:hover{
+	color:var(--accent);
+	text-decoration:none;
+}
+
 .address-grid{
 	display:grid;
 	grid-template-columns:repeat(4,1fr);

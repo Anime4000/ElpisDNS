@@ -59,8 +59,8 @@ perditus✝paradisus
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-<link href="style-main.css?version=3.3" rel="stylesheet">
-<link href="style-mobile.css?version=3.3" rel="stylesheet">
+<link href="style-main.css?version=3.4" rel="stylesheet">
+<link href="style-mobile.css?version=3.4" rel="stylesheet">
 
 <meta name="description" content="Encrypted DoH and DoT resolvers run by the community. No censorship, no surveillance, no ledger of your curiosity. Pick a region, pick a transport, take the endpoint.">
 
@@ -164,7 +164,7 @@ perditus✝paradisus
 		</div>
 	</div>
 
-	<!-- House rules -->
+	<!-- House rules - stright to the point
 	<div class="rules mb-5">
 
 		<div class="rule">
@@ -203,6 +203,7 @@ perditus✝paradisus
 			</div>
 		</div>
 	</div>
+	-->
 
 	<div class="section-heading">The table</div>
 
@@ -367,98 +368,112 @@ perditus✝paradisus
 
 		<div class="blacklist mt-4">
 
-			<div class="bl-item">
-				<div class="bl-index">01</div>
+			<details class="bl-item">
+				<summary>
+					<span class="bl-index">01</span>
+					<span class="bl-name">AdGuard DNS filter</span>
+					<span class="bl-tag">ADS &amp; TRACKING</span>
+					<i class="bi bi-chevron-down bl-chev"></i>
+				</summary>
 				<div class="bl-body">
-					<div class="bl-name">
-						<a href="https://github.com/AdguardTeam/AdGuardSDNSFilter" target="_blank" rel="noopener">AdGuard DNS filter</a>
-						<span class="bl-tag">ADS &amp; TRACKING</span>
-					</div>
 					<div class="bl-text">
-						The workhorse. AdGuard Base, Social Media, Tracking Protection and
-						Mobile Ads rolled together with EasyList and EasyPrivacy, compiled
-						for DNS rather than for a browser.
+						The workhorse. AdGuard Base, Social Media, Tracking Protection and Mobile
+					Ads rolled together with EasyList and EasyPrivacy, compiled for DNS rather
+					than for a browser.
 					</div>
 					<div class="bl-url">
 						<code>https://adguardteam.github.io/HostlistsRegistry/assets/filter_1.txt</code>
-						<button class="btn btn-elpis-ghost btn-sm" type="button"
-							data-copy="https://adguardteam.github.io/HostlistsRegistry/assets/filter_1.txt">
+						<button class="btn btn-elpis-ghost btn-sm" type="button" data-copy="https://adguardteam.github.io/HostlistsRegistry/assets/filter_1.txt">
 							<i class="bi bi-clipboard"></i> Copy
 						</button>
 					</div>
+					<a class="bl-src" href="https://github.com/AdguardTeam/AdGuardSDNSFilter" target="_blank" rel="noopener">
+						<i class="bi bi-box-arrow-up-right"></i> Where it comes from
+					</a>
 				</div>
-			</div>
+			</details>
 
-			<div class="bl-item">
-				<div class="bl-index">02</div>
+			<details class="bl-item">
+				<summary>
+					<span class="bl-index">02</span>
+					<span class="bl-name">AdAway Default Blocklist</span>
+					<span class="bl-tag">MOBILE ADS</span>
+					<i class="bi bi-chevron-down bl-chev"></i>
+				</summary>
 				<div class="bl-body">
-					<div class="bl-name">
-						<a href="https://github.com/AdAway/adaway.github.io/" target="_blank" rel="noopener">AdAway Default Blocklist</a>
-						<span class="bl-tag">MOBILE ADS</span>
-					</div>
 					<div class="bl-text">
-						Fifteen years of Android ad hosts, maintained by people who got
-						tired of paying for the same banner twice on a metered connection.
+						Fifteen years of Android ad hosts, maintained by people who got tired of
+					paying for the same banner twice on a metered connection.
 					</div>
 					<div class="bl-url">
 						<code>https://adguardteam.github.io/HostlistsRegistry/assets/filter_2.txt</code>
-						<button class="btn btn-elpis-ghost btn-sm" type="button"
-							data-copy="https://adguardteam.github.io/HostlistsRegistry/assets/filter_2.txt">
+						<button class="btn btn-elpis-ghost btn-sm" type="button" data-copy="https://adguardteam.github.io/HostlistsRegistry/assets/filter_2.txt">
 							<i class="bi bi-clipboard"></i> Copy
 						</button>
 					</div>
+					<a class="bl-src" href="https://github.com/AdAway/adaway.github.io/" target="_blank" rel="noopener">
+						<i class="bi bi-box-arrow-up-right"></i> Where it comes from
+					</a>
 				</div>
-			</div>
+			</details>
 
-			<div class="bl-item">
-				<div class="bl-index">03</div>
+			<details class="bl-item">
+				<summary>
+					<span class="bl-index">03</span>
+					<span class="bl-name">uBlock&#8320; filters &ndash; Badware risks</span>
+					<span class="bl-tag">BADWARE</span>
+					<i class="bi bi-chevron-down bl-chev"></i>
+				</summary>
 				<div class="bl-body">
-					<div class="bl-name">
-						<a href="https://github.com/uBlockOrigin/uAssets" target="_blank" rel="noopener">uBlock&#8320; filters &ndash; Badware risks</a>
-						<span class="bl-tag">BADWARE</span>
-					</div>
 					<div class="bl-text">
-						The short list of sites documented to hand you adware, crapware or
-						malware, or to relieve you of your login credentials. Short, because
-						every entry on it is there for a reason somebody wrote down.
+						The short list of sites documented to hand you adware, crapware or malware,
+					or to relieve you of your login credentials. Short, because every entry on
+					it is there for a reason somebody wrote down.
 					</div>
 					<div class="bl-url">
 						<code>https://adguardteam.github.io/HostlistsRegistry/assets/filter_50.txt</code>
-						<button class="btn btn-elpis-ghost btn-sm" type="button"
-							data-copy="https://adguardteam.github.io/HostlistsRegistry/assets/filter_50.txt">
+						<button class="btn btn-elpis-ghost btn-sm" type="button" data-copy="https://adguardteam.github.io/HostlistsRegistry/assets/filter_50.txt">
 							<i class="bi bi-clipboard"></i> Copy
 						</button>
 					</div>
+					<a class="bl-src" href="https://github.com/uBlockOrigin/uAssets" target="_blank" rel="noopener">
+						<i class="bi bi-box-arrow-up-right"></i> Where it comes from
+					</a>
 				</div>
-			</div>
+			</details>
 
-			<div class="bl-item">
-				<div class="bl-index">04</div>
+			<details class="bl-item">
+				<summary>
+					<span class="bl-index">04</span>
+					<span class="bl-name">ΕΛΠΙΣ DNS filter</span>
+					<span class="bl-tag bl-tag-ours">IN HOUSE</span>
+					<i class="bi bi-chevron-down bl-chev"></i>
+				</summary>
 				<div class="bl-body">
-					<div class="bl-name">
-						<a href="https://riri.pururin.moe/" target="_blank" rel="noopener">ΕΛΠΙΣ DNS filter</a>
-						<span class="bl-tag bl-tag-ours">IN HOUSE</span>
-					</div>
 					<div class="bl-text">
-						Ours. Bogus, dead, parked, deceptive and legally abusive domains that
-						the big lists have not got around to, reviewed and trimmed for DNS by
-						<a href="https://riri.pururin.moe/" target="_blank" rel="noopener">@Riri1x86</a>.
-						It ships with an exceptions list, because a filter that breaks your
-						bank login is not protecting you from anything.
+						Ours. Bogus, dead, parked, deceptive and legally abusive domains the big
+					lists have not got around to, reviewed and trimmed for DNS by @Riri1x86.
+					It ships with an exceptions list, because a filter that breaks your bank
+					login is not protecting you from anything.
 					</div>
 					<div class="bl-url">
 						<code>https://elpis.violetnetworks.xyz/bogus.txt</code>
-						<button class="btn btn-elpis-ghost btn-sm" type="button"
-							data-copy="https://elpis.violetnetworks.xyz/bogus.txt">
+						<button class="btn btn-elpis-ghost btn-sm" type="button" data-copy="https://elpis.violetnetworks.xyz/bogus.txt">
 							<i class="bi bi-clipboard"></i> Copy
 						</button>
 					</div>
 					<div class="bl-url">
 						<code>https://elpis.violetnetworks.xyz/allow.txt</code>
-						<span class="bl-note">exceptions, load this one as an allowlist</span>
+						<span class="bl-note">exceptions, load as an allowlist</span>
+						<button class="btn btn-elpis-ghost btn-sm" type="button" data-copy="https://elpis.violetnetworks.xyz/allow.txt">
+							<i class="bi bi-clipboard"></i> Copy
+						</button>
 					</div>
+					<a class="bl-src" href="https://riri.pururin.moe/" target="_blank" rel="noopener">
+						<i class="bi bi-box-arrow-up-right"></i> Where it comes from
+					</a>
 				</div>
-			</div>
+			</details>
 		</div>
 
 		<div class="subtitle mt-4">
@@ -769,10 +784,10 @@ perditus✝paradisus
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-<script src="js/app-theme.js?version=3.3"></script>
-<script src="js/app.js?version=3.3"></script>
-<script src="js/app-quote.js?version=3.3"></script>
-<script src="js/app-mikrotik.js?version=3.3"></script>
+<script src="js/app-theme.js?version=3.4"></script>
+<script src="js/app.js?version=3.4"></script>
+<script src="js/app-quote.js?version=3.4"></script>
+<script src="js/app-mikrotik.js?version=3.4"></script>
 
 </body>
 </html>

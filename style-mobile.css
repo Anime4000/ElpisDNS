@@ -172,13 +172,35 @@
 
 	/* BLACKLIST */
 
+	.bl-item > summary{
+		flex-wrap:wrap;
+		gap:8px 10px;
+		padding:12px 14px;
+	}
+
 	.bl-index{
-		font-size:18px;
-		min-width:26px;
+		font-size:17px;
+		min-width:24px;
 	}
 
 	.bl-name{
-		font-size:18px;
+		flex:1 1 auto;
+		font-size:17px;
+	}
+
+	/* The tag drops to its own line rather than squeezing the name. */
+	.bl-tag{
+		order:3;
+		flex:0 0 auto;
+	}
+
+	.bl-chev{
+		order:2;
+		margin-left:auto;
+	}
+
+	.bl-body{
+		padding:0 14px 14px 14px;
 	}
 
 	/* A subscription URL and a button side by side leaves the URL a
